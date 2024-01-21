@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <title>Document</title>
+</head>
+<body>
+
+    <center>
+        <div class="card" style="width: 18rem; margin-top: 7%;">
+            <div class="card-body">
+                <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                    ADDING
+                    </a>
+                    <a href="{% url 'add_product' 'produit' %}" class="list-group-item list-group-item-action">PRODUCT</a>
+                    <a href="{% url 'add_product' 'center' %}" class="list-group-item list-group-item-action">CENTRE</a>
+                    <a href="{% url 'add_product' 'team' %}" class="list-group-item list-group-item-action">EMPLOYER</a>
+                    <a href="{% url 'add_product' 'fournisseur' %}" class="list-group-item list-group-item-action">fournisseur</a>
+                    <a href="{% url 'add_product' 'matiere_premiere' %}" class="list-group-item list-group-item-action">MATIERE PREMIERE</a>
+                    <a href="{% url 'add_product' 'client' %}" class="list-group-item list-group-item-action">CLIENT</a>
+                    <a href="{% url 'add_product' 'pv' %}" class="list-group-item list-group-item-action">ajouter pv</a>
+                    <a href="{% url 'achat'%}" class="list-group-item list-group-item-action">ajouter vente</a>
+                </div>
+            <a href="{% url 'list_produit' %}" class="card-link">Card link</a>
+            <!--<a href="{}" class="card-link">Another link</a>-->
+            </div>
+        </div>
+    </center>
+
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"> </script>
+</body>
+</html>

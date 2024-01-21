@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    
+    <table  class="table table-hover">
+        <thead>
+            <tr align="center">
+
+                <th align="center">Code</th>
+                <th align="center">Name</th>
+                <th align="center">ADR</th>
+                <th align="center">TEL</th>
+                <th align="center"> SALAIRE </th>
+                <th align="center"> Options </th>
+                <th align="center"> Options </th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td align="center">{{ team.employer_CODE }}</td>
+                <td align="center">{{ team.employer_NOM }}</td>
+                <td align="center">{{ team.employer_ADR }}</td>
+                <td align="center">{{ team.employer_TEL }}</td>
+                <td align="center">{{ team.employer_SALAIRE_JR }}</td>
+                <td align="center"> <a href="{% url 'edit' team.employer_CODE 'team'%}"><input type="submit" value="Edit" class="btn btn-outline-secondary"></a></td>
+                <td align="center"> <a href="{% url 'delete' team.employer_CODE 'team'%}"><input type="submit" value="Delete" class="btn btn-outline-danger"></a></td>
+            </tr>
+
+
+        </tbody>
+    </table>
+    <br>
+    <center>
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+            <h5 class="card-title">espace de pointage</h5>
+            <p class="card-text">appuyez sur l'espace pour indiquer la presence de l'employer .</p>
+           
+            <a href="{% url 'pointage' id %}"><input type="submit" value="pointage" class="btn btn-outline-secondary"></a>
+            
+
+            <p class="card-text">appuyez sur l'espace pour indiquer une demande d'emprunt .</p>
+            <a href="{% url 'emprunt' id %}"><input type="submit" value="emprunt" class="btn btn-outline-secondary"></a>
+            <br>
+            <a href="{% url 'list_team' id %}" class="card-link">Return Back</a>
+
+            </div>
+
+        </div>
+    </center>
+
+    
+
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"> </script>
+</body>
+</html>

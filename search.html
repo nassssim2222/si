@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <title>Document</title>
+    <style>
+        body{
+            background-color:cadetblue;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        {% if produits %}
+            {% if searched %}
+                <h1>search result : {{searched}}</h1>
+                {% for product in produits %}
+                <table  class="table table-hover">
+                    <thead>
+                        <tr align="center">
+                            <th align="center">ID</th>
+                            <th align="center">Name</th>
+                            <th align="center">Price</th>
+                            <th align="center">Produced At</th>
+                            <th align="center"> Options </th>
+                            <th align="center"> Options </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td align="center">{{ product.prod_ID }}</td>
+                            <td align="center">{{ product.prod_NAME }}</td>
+                            <td align="center">{{ product.price }}</td>
+                            <td align="center">{{ product.produced_at }}</td>
+                            <td align="center"> <a href="{% url 'edit' product.prod_ID 'produit'%}"><input type="submit" value="Edit" class="btn btn-outline-secondary"></a></td>
+                            <td align="center"> <a href="{% url 'delete' product.prod_ID 'produit'%}"><input type="submit" value="Delete" class="btn btn-outline-danger"></a></td>
+                        </tr>
+            
+                    </tbody>
+                </table>
+                {%endfor%}
+            {%else%}
+                <h1>you must type something for searching</h1>
+            {%endif%}
+        {% endif %}
+        
+
+        {% if centre %}
+            {% if searched %}
+                <h1>search result : {{searched}}</h1>
+                {% for cent in centre %}
+                <table  class="table table-hover">
+                    <thead>
+                        <tr align="center">
+                            <th align="center">ID</th>
+                            <th align="center">Name</th>
+                            <th align="center">Tel</th>
+                            <th align="center"> MAIL</th>
+                            <th align="center"> Recette </th>
+                            <th align="center"> Options </th>
+                            <th align="center"> Options </th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td align="center">{{ cent.centre_ID }}</td>
+                            <td align="center">{{ cent.centre_NAME }}</td>
+                            <td align="center">{{ cent.centre_TEL }}</td>
+                            <td align="center">{{ cent.centre_MAIL }}</td>
+                            <td align="center">{{ cent.recette }}</td>
+                            <td align="center"> <a href="{% url 'edit' cent.centre_ID 'centre' %}"><input type="submit" value="Edit" class="btn btn-outline-secondary"></a></td>
+                            <td align="center"> <a href="{% url 'delete' cent.centre_ID 'centre' %}"><input type="submit" value="Delete" class="btn btn-outline-danger"></a></td>
+                        </tr>
+            
+                    </tbody>
+                </table>
+                {%endfor%}
+            {%else%}
+                <h1>you must type something for searching</h1>
+            {%endif%} 
+        {% endif %}
+
+        {% if team %}
+            {% if searched %}
+                <h1>search result : {{searched}}</h1>
+                {% for t in team %}
+                <table  class="table table-hover">
+                    <thead>
+                        <tr align="center">
+                            <th align="center">CODE</th>
+                            <th align="center">Name</th>
+                            <th align="center">ADR</th>
+                            <th align="center"> TEL</th>
+                            <th align="center"> SALAIRE </th>
+                            <th align="center"> Options </th>
+                            <th align="center"> Options </th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td align="center">{{ t.employer_CODE }}</td>
+                            <td align="center">{{ t.employer_NOM }}</td>
+                            <td align="center">{{ t.employer_ADR }}</td>
+                            <td align="center">{{ t.employer_TEL }}</td>
+                            <td align="center">{{ t.employer_SALAIRE_JR }}</td>
+                            <td align="center"> <a href="{% url 'edit' t.employer_CODE 'team' %}"><input type="submit" value="Edit" class="btn btn-outline-secondary"></a></td>
+                            <td align="center"> <a href="{% url 'delete' t.employer_CODE 'team' %}"><input type="submit" value="Delete" class="btn btn-outline-danger"></a></td>
+                        </tr>
+            
+                    </tbody>
+                </table>
+                {%endfor%}
+            {%else%}
+                <h1>you must type something for searching</h1>
+            {%endif%} 
+        {% endif %}
+
+        {% if client %}
+            {% if searched %}
+                <h1>search result : {{searched}}</h1>
+                {% for cl in client %}
+                <table  class="table table-hover">
+                    <thead>
+                        <tr align="center">
+                            <th align="center">ID</th>
+                            <th align="center">Name</th>
+                            <th align="center">ADR</th>
+                            <th align="center"> TEL</th>
+                            <th align="center"> Points </th>
+                            <th align="center"> Options </th>
+                            <th align="center"> Options </th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td align="center">{{ cl.client_ID }}</td>
+                            <td align="center">{{ cl.client_NAME }}</td>
+                            <td align="center">{{ cl.client_ADR }}</td>
+                            <td align="center">{{ cl.client_TEL }}</td>
+                            <td align="center">{{ cl.client_POINT }}</td>
+                            <td align="center"> <a href="{% url 'edit' cl.client_ID 'client' %}"><input type="submit" value="Edit" class="btn btn-outline-secondary"></a></td>
+                            <td align="center"> <a href="{% url 'delete' cl.client_ID 'client' %}"><input type="submit" value="Delete" class="btn btn-outline-danger"></a></td>
+                        </tr>
+            
+                    </tbody>
+                </table>
+                {%endfor%}
+            {%else%}
+                <h1>you must type something for searching</h1>
+            {%endif%} 
+        {% endif %}
+
+        {% if matiere_premiere %}
+            {% if searched %}
+                <h1>search result : {{searched}}</h1>
+                {% for mat in matiere_premiere %}
+                <table  class="table table-hover">
+                    <thead>
+                        <tr align="center">
+                            <th align="center">ID</th>
+                            <th align="center">Name</th>
+                            <th align="center">Price</th>
+                            <th align="center"> agent</th>
+                            <th align="center"> Options </th>
+                            <th align="center"> Options </th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td align="center">{{ mat.matiere_ID }}</td>
+                            <td align="center">{{ mat.matiere_NAME }}</td>
+                            <td align="center">{{ mat.matiere_PRICE }}</td>
+                            <td align="center">{{ mat.agent }}</td>
+                            <td align="center"> <a href="{% url 'edit' mat.matiere_ID 'matiere_premiere' %}"><input type="submit" value="Edit" class="btn btn-outline-secondary"></a></td>
+                            <td align="center"> <a href="{% url 'delete' mat.matiere_ID 'matiere_premiere' %}"><input type="submit" value="Delete" class="btn btn-outline-danger"></a></td>
+                        </tr>
+            
+                    </tbody>
+                </table>
+                {%endfor%}
+            {%else%}
+                <h1>you must type something for searching</h1>
+            {%endif%} 
+        {% endif %}
+
+        {% if fournisseur %}
+            {% if searched %}
+                <h1>search result : {{searched}}</h1>
+                {% for fr in fournisseur %}
+                <table  class="table table-hover">
+                    <thead>
+                        <tr align="center">
+                            <th align="center">ID</th>
+                            <th align="center">Name</th>
+                            <th align="center">ADR</th>
+                            <th align="center"> MAIL</th>
+                            <th align="center"> sold </th>
+                            <th align="center"> Options </th>
+                            <th align="center"> Options </th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td align="center">{{ fr.fournisseur_ID }}</td>
+                            <td align="center">{{ fr.fournisseur_NAME }}</td>
+                            <td align="center">{{ fr.fournisseur_ADR }}</td>
+                            <td align="center">{{ fr.fournisseur_MAIL }}</td>
+                            <td align="center">{{ fr.fournisseur_SOLD }}</td>
+                            <td align="center"> <a href="{% url 'edit' fr.fournisseur_ID 'fournisseur' %}"><input type="submit" value="Edit" class="btn btn-outline-secondary"></a></td>
+                            <td align="center"> <a href="{% url 'delete' fr.fournisseur_ID 'fournisseur' %}"><input type="submit" value="Delete" class="btn btn-outline-danger"></a></td>
+                        </tr>
+            
+                    </tbody>
+                </table>
+                {%endfor%}
+            {%else%}
+                <h1>you must type something for searching</h1>
+            {%endif%} 
+        {% endif %}
+
+        {% if achats %}
+
+                <h1>les achats sont : </h1>
+                {% for ach in achats %}
+                <table  class="table table-hover">
+                    <thead>
+                        <tr align="center">
+                            <th align="center">ID</th>
+                            <th align="center">Nom_fournisseur</th>
+                            <th align="center">Nom_produit</th>
+                            <th align="center"> Quantite d'achats</th>
+                            <th align="center"> date d'achat</th>
+                            <th align="center"> Options </th>
+                            <th align="center"> Options </th>
+                        
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td align="center">{{ ach.achats_ID }}</td>
+                            <td align="center">{{ ach.fournisseur_exist }}</td>
+                            <td align="center">{{ ach.produit_exist }}</td>
+                            <td align="center">{{ ach.QTE_achat }}</td>
+                            <td align="center">{{ ach.date_achats }}</td>
+                            <td align="center"> <a href="{% url 'edit' ach.achats_ID 'achats' %}"><input type="submit" value="Edit" class="btn btn-outline-secondary"></a></td>
+                            <td align="center"> <a href="{% url 'delete' ach.achats_ID 'achats' %}"><input type="submit" value="Delete" class="btn btn-outline-danger"></a></td>
+                        </tr>
+            
+                    </tbody>
+                </table>
+                {%endfor%}
+        {% endif %}
+
+        {% if transfere %}
+
+                <h1>les transfere sont : </h1>
+                {% for tr in transfere %}
+                <table  class="table table-hover">
+                    <thead>
+                        <tr align="center">
+                            <th align="center">ID</th>
+                            <th align="center">Nom_produit</th>
+                            <th align="center">centre a transfere</th>
+                            <th align="center"> date du transfere</th>
+                            <th align="center"> Quantite du transfere</th>
+                            <th align="center"> Options </th>
+                            <th align="center"> Options </th>
+                        
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td align="center">{{ tr.transfere_ID}}</td>
+                            <td align="center">{{ tr.produit_exist }}</td>
+                            <td align="center">{{ tr.centre_exist }}</td>
+                            <td align="center">{{ tr.date_transfere}}</td>
+                            <td align="center">{{ tr.QTE_transfere }}</td>
+                            <td align="center"> <a href="{% url 'edit' tr.transfere_ID 'transfere' %}"><input type="submit" value="Edit" class="btn btn-outline-secondary"></a></td>
+                            <td align="center"> <a href="{% url 'delete' tr.transfere_ID 'transfere' %}"><input type="submit" value="Delete" class="btn btn-outline-danger"></a></td>
+                        </tr>
+            
+                    </tbody>
+                </table>
+                {%endfor%}
+        {% endif %}
+
+        {% if vente %}
+
+        <h1>les Ventes sont : </h1>
+        {% for vn in vente %}
+        <table  class="table table-hover">
+            <thead>
+                <tr align="center">
+                    <th align="center">ID</th>
+                    <th align="center">Nom_produit</th>
+                    <th align="center">Nom_client</th>
+                    <th align="center"> date du Vente</th>
+                    <th align="center"> Quantite du Vente</th>
+                    <th align="center"> prix unitaire du Vente</th>
+                    <th align="center"> Options </th>
+                    <th align="center"> Options </th>
+                
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td align="center">{{ vn.vente_ID}}</td>
+                    <td align="center">{{ vn.produit_exist }}</td>
+                    <td align="center">{{ vn.client_exist }}</td>
+                    <td align="center">{{ vn.date_vente}}</td>
+                    <td align="center">{{ vn.QTE_vente }}</td>
+                    <td align="center">{{ vn.prix_unit_vente }}</td>
+                    <td align="center"> <a href="{% url 'edit' vn.vente_ID 'vente' %}"><input type="submit" value="Edit" class="btn btn-outline-secondary"></a></td>
+                    <td align="center"> <a href="{% url 'delete' vn.vente_ID 'vente' %}"><input type="submit" value="Delete" class="btn btn-outline-danger"></a></td>
+                </tr>
+    
+            </tbody>
+        </table>
+        {%endfor%}
+{% endif %}
+
+        {% if fournisseurs_reglage %}
+            {% if searched %}
+                <h1>search result : {{searched}}</h1>
+                {% for fr in fournisseurs_reglage %}
+                <table  class="table table-hover">
+                    <thead>
+                        <tr align="center">
+                            <th align="center">ID</th>
+                            <th align="center">Name</th>
+                            <th align="center">ADR</th>
+                            <th align="center"> MAIL</th>
+                            <th align="center"> sold </th>
+                            <th align="center"> Options </th>
+                            
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td align="center">{{ fr.fournisseur_ID }}</td>
+                            <td align="center">{{ fr.fournisseur_NAME }}</td>
+                            <td align="center">{{ fr.fournisseur_ADR }}</td>
+                            <td align="center">{{ fr.fournisseur_MAIL }}</td>
+                            <td align="center">{{ fr.fournisseur_SOLD }}</td>
+                            <td align="center"> <a href="{% url 'regler_sold' fr.fournisseur_ID  %}"><input type="submit" value="Regler" class="btn btn-outline-secondary"></a></td>
+                            
+                        </tr>
+            
+                    </tbody>
+                </table>
+                {%endfor%}
+            {%else%}
+                <h1>you must type something for searching</h1>
+            {%endif%} 
+        {% endif %}
+
+        {% if client_reglage %}
+            {% if searched %}
+                <h1>search result : {{searched}}</h1>
+                {% for vn in client_reglage %}
+                <table  class="table table-hover">
+                    <thead>
+                        <tr align="center">
+                            <th align="center">ID</th>
+                            <th align="center">Name</th>
+                            <th align="center">ADR</th>
+                            <th align="center"> TEL</th>
+                            <th align="center"> points</th>
+                            <th align="center"> sold </th>
+                            <th align="center"> Options </th>
+                            
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td align="center">{{ vn.client_ID }}</td>
+                            <td align="center">{{ vn.client_NAME }}</td>
+                            <td align="center">{{ vn.client_ADR }}</td>
+                            <td align="center">{{ vn.client_TEL }}</td>
+                            <td align="center">{{ vn.client_POINT }}</td>
+                            <td align="center">{{ vn.client_credit }}</td>
+                            <td align="center"> <a href="{% url 'regler_credit'  vn.client_ID  %}"><input type="submit" value="Regler" class="btn btn-outline-secondary"></a></td>
+                            
+                        </tr>
+            
+                    </tbody>
+                </table>
+                {%endfor%}
+            {%else%}
+                <h1>you must type something for searching</h1>
+            {%endif%} 
+        {% endif %}
+
+        {% if produit_stock %}
+                <h1>les produits courant dans le stock sont :</h1>
+                {% for product in produit_stock %}
+                <table  class="table table-hover">
+                    <thead>
+                        <tr align="center">
+                            <th align="center">ID</th>
+                            <th align="center">Name</th>
+                            <th align="center">Price</th>
+                            <th align="center">Produced At</th>
+                            <th align="center">quantite au stock</th>
+                            <th align="center"> Options </th>
+                            <th align="center"> Options </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td align="center">{{ product.prod_ID }}</td>
+                            <td align="center">{{ product.prod_NAME }}</td>
+                            <td align="center">{{ product.price }}</td>
+                            <td align="center">{{ product.produced_at }}</td>
+                            <td align="center">{{ product.quantite_stock }}</td>
+                            <td align="center"> <a href="{% url 'edit' product.prod_ID 'produit'%}"><input type="submit" value="Edit" class="btn btn-outline-secondary"></a></td>
+                            <td align="center"> <a href="{% url 'delete' product.prod_ID 'produit'%}"><input type="submit" value="Delete" class="btn btn-outline-danger"></a></td>
+                        </tr>
+            
+                    </tbody>
+                </table>
+                {%endfor%}
+            
+        {% endif %}
+        <br>
+        <h2>{{message}}</h2>
+        
+    </center>
+
+
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"> </script>
+</body>
+</html>

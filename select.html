@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <title>Document</title>
+    <style>
+        body{
+            background-color:cadetblue;
+        }
+    </style>
+</head>
+<body>
+    
+    {% if produit %}
+    <table  class="table table-hover">
+        <thead>
+            <tr align="center">
+                  <th align="center">ID</th>
+                  <th align="center">Name</th>
+                  <th align="center">Price</th>
+                  <th align="center">Produced At</th>
+                  <th align="center"> Options </th>
+                  <th align="center"> Options </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td align="center">{{ produit.prod_ID }}</td>
+                <td align="center">{{ produit.prod_NAME }}</td>
+                <td align="center">{{ produit.price }}</td>
+                <td align="center">{{ produit.produced_at }}</td>
+                <td align="center"> <a href="{% url 'edit' produit.prod_ID 'produit'%}"><input type="submit" value="Edit" class="btn btn-outline-secondary"></a></td>
+                <td align="center"> <a href="{% url 'delete' produit.prod_ID 'produit'%}"><input type="submit" value="Delete" class="btn btn-outline-danger"></a></td>
+            </tr>
+
+            {{type_obj}}
+
+        </tbody>
+    </table>
+    {%endif%}
+
+    {% if centre %}
+    <table  class="table table-hover">
+        <thead>
+            <tr align="center">
+
+                <th align="center">ID</th>
+                <th align="center">Name</th>
+                <th align="center">Tel</th>
+                <th align="center">MAIL At</th>
+                <th align="center"> Recette </th>
+                <th align="center"> Options </th>
+                <th align="center"> Options </th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td align="center">{{ centre.centre_ID }}</td>
+                <td align="center">{{ centre.centre_NAME }}</td>
+                <td align="center">{{ centre.centre_TEL }}</td>
+                <td align="center">{{ centre.centre_MAIL }}</td>
+                <td align="center">{{ centre.recette }}</td>
+                <td align="center"> <a href="{% url 'edit' centre.centre_ID 'centre'%}"><input type="submit" value="Edit" class="btn btn-outline-secondary"></a></td>
+                <td align="center"> <a href="{% url 'delete' centre.centre_ID 'centre'%}"><input type="submit" value="Delete" class="btn btn-outline-danger"></a></td>
+            </tr>
+
+           
+
+        </tbody>
+    </table>
+    <a href="{% url 'details' centre.centre_ID %}"><input type="submit" value="GO TO DETAILS" style="margin-left: 20%; margin-top: 5%;" class="btn btn-outline-secondary"></a>
+    {%endif%}
+
+    {% if client %}
+    <table  class="table table-hover">
+        <thead>
+            <tr align="center">
+
+                <th align="center">ID</th>
+                <th align="center">Name</th>
+                <th align="center">ADR</th>
+                <th align="center">Tel</th>
+                <th align="center"> Points </th>
+                <th align="center"> Options </th>
+                <th align="center"> Options </th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td align="center">{{ client.client_ID }}</td>
+                <td align="center">{{ client.client_NAME }}</td>
+                <td align="center">{{ client.client_ADR }}</td>
+                <td align="center">{{ client.client_TEL }}</td>
+                <td align="center">{{ client.client_POINT }}</td>
+                <td align="center"> <a href="{% url 'edit' client.client_ID 'client'%}"><input type="submit" value="Edit" class="btn btn-outline-secondary"></a></td>
+                <td align="center"> <a href="{% url 'delete' client.client_ID 'client'%}"><input type="submit" value="Delete" class="btn btn-outline-danger"></a></td>
+            </tr>
+
+            {{type_obj}}
+
+        </tbody>
+    </table>
+    {%endif%}
+
+    {% if fournisseur %}
+    <table  class="table table-hover">
+        <thead>
+            <tr align="center">
+
+                <th align="center">ID</th>
+                <th align="center">Name</th>
+                <th align="center">ADR</th>
+                <th align="center">MAIL</th>
+                <th align="center"> Sold </th>
+                <th align="center"> Options </th>
+                <th align="center"> Options </th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td align="center">{{ fournisseur.fournisseur_ID }}</td>
+                <td align="center">{{ fournisseur.fournisseur_NAME }}</td>
+                <td align="center">{{ fournisseur.fournisseur_ADR }}</td>
+                <td align="center">{{ fournisseur.fournisseur_MAIL }}</td>
+                <td align="center">{{ fournisseur.fournisseur_SOLD }}</td>
+                <td align="center"> <a href="{% url 'edit' fournisseur.fournisseur_ID 'fournisseur'%}"><input type="submit" value="Edit" class="btn btn-outline-secondary"></a></td>
+                <td align="center"> <a href="{% url 'delete' fournisseur.fournisseur_ID 'fournisseur'%}"><input type="submit" value="Delete" class="btn btn-outline-danger"></a></td>
+            </tr>
+
+            {{type_obj}}
+
+        </tbody>
+    </table>
+    {%endif%}
+
+    {% if team %}
+    <table  class="table table-hover">
+        <thead>
+            <tr align="center">
+
+                <th align="center">Code</th>
+                <th align="center">Name</th>
+                <th align="center">Tel</th>
+                <th align="center">ADR</th>
+                <th align="center"> SALAIRE </th>
+                <th align="center"> Options </th>
+                <th align="center"> Options </th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td align="center">{{ team.employer_CODE }}</td>
+                <td align="center">{{ team.employer_NOM }}</td>
+                <td align="center">{{ team.employer_ADR }}</td>
+                <td align="center">{{ team.employer_TEL }}</td>
+                <td align="center">{{ team.employer_SALAIRE_JR }}</td>
+                <td align="center"> <a href="{% url 'edit' team.employer_CODE 'team'%}"><input type="submit" value="Edit" class="btn btn-outline-secondary"></a></td>
+                <td align="center"> <a href="{% url 'delete' team.employer_CODE 'team'%}"><input type="submit" value="Delete" class="btn btn-outline-danger"></a></td>
+            </tr>
+
+            {{type_obj}}
+
+        </tbody>
+    </table>
+    {%endif%}
+
+    {% if matiere_premiere %}
+    <table  class="table table-hover">
+        <thead>
+            <tr align="center">
+
+                <th align="center">ID</th>
+                <th align="center">Name</th>
+                <th align="center">Price</th>
+                <th align="center">enregistrer par</th>
+                <th align="center"> Options </th>
+                <th align="center"> Options </th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td align="center">{{ matiere_premiere.matiere_ID }}</td>
+                <td align="center">{{ matiere_premiere.matiere_NAME }}</td>
+                <td align="center">{{ matiere_premiere.matiere_PRICE }}</td>
+                <td align="center">{{ matiere_premiere.agent.agent_NAME }}</td>
+                <td align="center"> <a href="{% url 'edit' matiere_premiere.matiere_ID 'matiere_premiere'%}"><input type="submit" value="Edit" class="btn btn-outline-secondary"></a></td>
+                <td align="center"> <a href="{% url 'delete' matiere_premiere.matiere_ID 'matiere_premiere'%}"><input type="submit" value="Delete" class="btn btn-outline-danger"></a></td>
+            </tr>
+
+            {{type_obj}}
+
+        </tbody>
+    </table>
+    {%endif%}
+
+    
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"> </script>
+      
+</body>
+</html>

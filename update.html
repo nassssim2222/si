@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <title>Document</title>
+    <style>
+        body{
+            background-color:cadetblue;
+        }
+    </style>
+</head>
+<body>
+
+    <h3>Edit Commande</h3>
+    <form method="POST">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+        
+    </form>
+    {{message}}
+    
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"> </script>
+</body>
+</html>

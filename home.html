@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    
+    <title>Document</title>
+    <style>
+      body{
+          background-color:cadetblue;
+          
+      }
+      button {
+          transition-duration: 0.4s;
+          margin-left: 30px;
+          margin-bottom: 10px;
+      }
+
+      button:hover {
+          background-color: #04AA6D; /* Green */
+          color: white;
+      }
+      .section{
+        margin-left: 20px;
+      }
+  </style>
+</head>
+<body>
+    
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'choose' %}">ADD</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              more details at centers
+            </a>
+          
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="{% url 'select_product' 1 'centre'%}">center 1</a></li>
+              <li><a class="dropdown-item" href="{% url 'select_product' 2 'centre'%}">center 2</a></li>
+              <li><a class="dropdown-item" href="{% url 'select_product' 3 'centre'%}">center 3</a></li>
+              <!--<li><a class="dropdown-item" href="#">Another action</a></li>-->
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+          </li>
+        </ul>
+        <form class="d-flex" role="search" method="POST" action="{% url 'search_product' %}">
+          {% csrf_token %}
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="passed">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+  <br>
+    <h1>Gestion Du Magasin : </h1>
+    <br>
+    <div class="magasin">
+        <h2>- Le Magasin : </h2>
+        <br>
+        <div class="section">
+            <h3>-Les Tables : </h3>
+            <a href="{% url 'list_produit' %}"><button > Gerer </button> </a> 
+        </div>
+        <div class="section">
+            <h3>- Matieres : </h3>
+            <a href="{% url 'gerer_matieres' %}"><button> Gerer </button></a>
+        </div>
+        <div class="section">
+            <h3>- Etat Du Stock : </h3>
+            <a href="{% url 'gerer_stock' %}"><button> Gerer </button></a>
+        </div>
+    </div>
+    <br>
+    <div class="centres">
+        <h2>- Les Centres : </h2>
+        <br>
+        <div class="section">
+            <h3>-Centres 1 : </h3> 
+            <a href="{% url 'details' 1  %}"><button> Gerer </button></a>
+        </div>
+        <div class="section">
+            <h3>-Centres 2 : </h3>
+            <a href="{% url 'details' 2  %}"><button> Gerer </button></a>
+        </div>
+        <div class="section">
+            <h3>-Centres 3 : </h3>
+            <a href="{% url 'details' 3  %}"><button> Gerer </button></a>
+        </div>
+    </div>
+   
+  </div>
+
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"> </script>
+</body>
+
+</html>

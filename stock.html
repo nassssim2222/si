@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <title>Document</title>
+
+    <style>
+        body{
+            background-color:cadetblue;
+        }
+        button {
+          transition-duration: 0.4s;
+          margin-left: 30px;
+          margin-bottom: 10px;
+      }
+
+      button:hover {
+          background-color: #04AA6D; /* Green */
+          color: white;
+      }
+    </style>
+
+</head>
+<body>
+
+    
+
+    <center>
+        <h2>filtrer les resultat : </h2>
+        <form method="get" action="{% url 'gerer_stock' %}">
+            {{ filtre_form.as_p }}
+            <button type="submit">Filtrer</button>
+        </form>
+        <h3>total d'achats est : {{ total_achats }}</h3>
+        {% if produit_stock %}
+                <h1>les produits courant dans le stock sont :</h1>
+                {% for product in produit_stock %}
+                <table  class="table table-hover">
+                    <thead>
+                        <tr align="center">
+                            <th align="center">ID</th>
+                            <th align="center">Name</th>
+                            <th align="center">Price</th>
+                            <th align="center">Produced At</th>
+                            <th align="center">quantite au stock</th>
+                            <th align="center"> Options </th>
+                            <th align="center"> Options </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td align="center">{{ product.prod_ID }}</td>
+                            <td align="center">{{ product.prod_NAME }}</td>
+                            <td align="center">{{ product.price }}</td>
+                            <td align="center">{{ product.produced_at }}</td>
+                            <td align="center">{{ product.quantite_stock }}</td>
+                            <td align="center"> <a href="{% url 'edit' product.prod_ID 'produit'%}"><input type="submit" value="Edit" class="btn btn-outline-secondary"></a></td>
+                            <td align="center"> <a href="{% url 'delete' product.prod_ID 'produit'%}"><input type="submit" value="Delete" class="btn btn-outline-danger"></a></td>
+                        </tr>
+            
+                    </tbody>
+                </table>
+                {%endfor%}
+            
+        {% endif %}
+    </center>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"> </script>
+</body>
+</html>

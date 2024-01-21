@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"> 
+    <title>pointage</title>
+</head>
+<body>
+    <br>
+    <center>
+
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+            <h5 class="card-title">espace de pointage</h5>
+            <p class="card-text">appuyez sur l'espace pour indiquer la presence de l'employer ou l'abscence de l'employer .</p>
+
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+               <input type="submit" value="submit">
+            </form>
+            <br>
+            </div>
+
+        </div>
+    </center>
+
+
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"> </script>
+</body>
+</html>
