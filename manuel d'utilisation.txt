@@ -1,0 +1,19 @@
+notre programme decompose du 3 section princtipalepour gerer le magasin , sont affiche dans la page home :  
+
+1- gestion du magasin principale : 
+	- on peut gerer dans ce section les tables du base du donnes du magasin(ces employees,ces clients ,ces fournisseurs...) l'appuie sur gerer ce que est sous les tables .
+	- on peut gerer dans ce section les operations du magasin sur les matieres premieres(ventes,achats ,transfere) l'appuie sur gerer ce que est sous les matieres nous permettre d'acceder a la page du gestion des matieres .
+	- on peut consulter dans ce section le stock du magasin et son etat,  l'appuie sur gerer ce que est sous l'etat du stock nous permettre d'acceder a l'etat du stock.
+
+
+2- gestion des centres des magasin : 
+	- on peut gerer dans ce section les centres du magasin(centre1, centre2, centre3...),il suffit d'appuyez  sur gerer ce que est sous le centre a gerer.
+
+3- consultation du table de board : 
+	- on peut consulter dans ce section les statistiques du magasin souf formes des table du boardil suffit d'appuyez  sur gerer ce que est sous tableaux du board.
+
+
+* page du gestion des matieres : 
+	- ce page affiche lorsque en appuyez sur gerer du matieres dans la page home.
+	- on peut gerer le deux categorie des achats et vente(avec ou sana tranche) + le transfere. on appuyez sur le gerer d'operation qu'on veut gerer 
+	
